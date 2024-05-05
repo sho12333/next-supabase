@@ -1,44 +1,17 @@
-import NextLogo from "./NextLogo";
-import SupabaseLogo from "./SupabaseLogo";
+"use client";
+import { Button } from "@/components/ui/button";
+import { ThemeChangeMenu } from "@/components/ThemeChangeMenu";
+import { usePathname } from "next/navigation";
 
-export default function Header() {
+export const Header = () => {
+  const pathName = usePathname();
+  if (pathName === "/login" || pathName === "/register") return null;
   return (
-    <div className="flex flex-col gap-16 items-center">
-      <div className="flex gap-8 justify-center items-center">
-        <a
-          href="https://supabase.com/?utm_source=create-next-app&utm_medium=template&utm_term=nextjs"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <SupabaseLogo />
-        </a>
-        <span className="border-l rotate-45 h-6" />
-        <a href="https://nextjs.org/" target="_blank" rel="noreferrer">
-          <NextLogo />
-        </a>
+    <div className="fixed flex justify-between px-8 w-screen h-14 bg-slate-200 items-center drop-shadow-2xl border-b border-gray-300 shadow-md">
+      <h1 className="font-bold text-xl">Project</h1>
+      <div className="flex gap-3">
+        <ThemeChangeMenu />
       </div>
-      <h1 className="sr-only">Supabase and Next.js Starter Template</h1>
-      <p className="text-3xl lg:text-4xl !leading-tight mx-auto max-w-xl text-center">
-        The fastest way to build apps with{" "}
-        <a
-          href="https://supabase.com/?utm_source=create-next-app&utm_medium=template&utm_term=nextjs"
-          target="_blank"
-          className="font-bold hover:underline"
-          rel="noreferrer"
-        >
-          Supabase
-        </a>{" "}
-        and{" "}
-        <a
-          href="https://nextjs.org/"
-          target="_blank"
-          className="font-bold hover:underline"
-          rel="noreferrer"
-        >
-          Next.js
-        </a>
-      </p>
-      <div className="w-full p-[1px] bg-gradient-to-r from-transparent via-foreground/10 to-transparent my-8" />
     </div>
   );
-}
+};
