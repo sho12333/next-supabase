@@ -41,7 +41,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Header />
-          <main className="min-h-screen flex flex-col items-center">
+          <main className="min-h-screen flex flex-col bg-slate-50 text-slate-900 items-center dark:bg-slate-950">
             {children}
           </main>
           <Toaster />
