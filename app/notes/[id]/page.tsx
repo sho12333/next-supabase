@@ -34,7 +34,7 @@ const EditNotePage: React.FC = () => {
   };
 
   return (
-    <div className="max-w-xl w-full mt-20">
+    <div className="max-w-xl w-full">
       <h2 className="text-2xl font-bold text-center mb-4">Edit Note</h2>
       {note && <NoteForm initialNote={note.content} onSave={saveNote} />}
     </div>

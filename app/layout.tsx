@@ -4,7 +4,8 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Header } from "@/components/Header";
+import { Header } from "@/components/layout/Header";
+import { Sidebar } from "@/components/Sidebar";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -40,10 +41,15 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Header />
-          <main className="min-h-screen flex flex-col bg-slate-50 text-slate-900 items-center dark:bg-slate-950">
-            {children}
-          </main>
+          <div className="flex w-full">
+            <Sidebar />
+            <div className="flex flex-col w-5/6">
+              <Header />
+              <main className="flex-grow flex flex-col p-6 mt-14 bg-slate-50 text-slate-900 dark:bg-slate-950">
+                {children}
+              </main>
+            </div>
+          </div>
           <Toaster />
         </ThemeProvider>
       </body>
